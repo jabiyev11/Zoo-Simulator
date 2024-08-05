@@ -1,3 +1,6 @@
+package enclosure;
+
+import animal.Animal;
 import food.FoodStore;
 
 import java.util.ArrayList;
@@ -32,7 +35,6 @@ public class Enclosure {
     public void removeAnimal(Animal animal){
         animals.remove(animal);
     }
-
 
     public Integer sizeOfAnimalList(){
         return animals.size();
