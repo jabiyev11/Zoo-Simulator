@@ -1,18 +1,15 @@
 package animal;
 
 import enclosure.Enclosure;
+import food.Food;
 
 public class Tiger extends BigCat{
 
 
-    public Tiger(Integer age, Character gender, String[] eats, Integer health, Enclosure enclosure) {
-        super(age, gender, eats, health, enclosure);
+    public Tiger(Integer age, Character gender, Integer health, Enclosure enclosure) {
+        super(age, gender, health, enclosure);
     }
 
-    @Override
-    public boolean canEat(String food) {
-        return false;
-    }
 
     @Override
     public void eat() {
@@ -21,11 +18,15 @@ public class Tiger extends BigCat{
 
     @Override
     public void treat() {
-
+        stroked();
     }
 
     @Override
     public boolean aMonthPasses() {
         return false;
+    }
+
+    private void stroked(){
+        setHealth(getHealth() + 3);
     }
 }

@@ -1,17 +1,18 @@
 package animal;
 
 import enclosure.Enclosure;
+import food.Food;
 
 public abstract class Animal {
 
     private Integer age;
     private Character gender;
-    private String[] eats;
+    private Food[] eats;
     private Integer health;
     private Integer lifeExpectancy;
     private Enclosure enclosure;
 
-    public Animal(Integer age, Character gender, String[] eats, Integer health, Integer lifeExpectancy, Enclosure enclosure) {
+    public Animal(Integer age, Character gender, Food[] eats, Integer health, Integer lifeExpectancy, Enclosure enclosure) {
         this.age = age;
         this.gender = gender;
         this.eats = eats;
@@ -20,7 +21,7 @@ public abstract class Animal {
         this.enclosure = enclosure;
     }
 
-    abstract public boolean canEat(String food);
+    abstract public boolean canEat(Food food);
 
     abstract public void eat();
 
@@ -41,7 +42,7 @@ public abstract class Animal {
         return gender;
     }
 
-    public String[] getEats() {
+    public Food[] getEats() {
         return eats;
     }
 
@@ -57,4 +58,7 @@ public abstract class Animal {
         this.enclosure = enclosure;
     }
 
+    public void setHealth(Integer health) {
+        this.health = health;
+    }
 }
