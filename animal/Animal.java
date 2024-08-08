@@ -3,6 +3,9 @@ package animal;
 import enclosure.Enclosure;
 import food.Food;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public abstract class Animal {
 
     private Integer age;
@@ -60,5 +63,31 @@ public abstract class Animal {
 
     public void setHealth(Integer health) {
         this.health = health;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Animal animal)) return false;
+        return Objects.equals(age, animal.age) && Objects.equals(gender, animal.gender) && Arrays.equals(eats, animal.eats) && Objects.equals(health, animal.health) && Objects.equals(lifeExpectancy, animal.lifeExpectancy) && Objects.equals(enclosure, animal.enclosure);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(age, gender, health, lifeExpectancy, enclosure);
+        result = 31 * result + Arrays.hashCode(eats);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "age=" + age +
+                ", gender=" + gender +
+                ", eats=" + Arrays.toString(eats) +
+                ", health=" + health +
+                ", lifeExpectancy=" + lifeExpectancy +
+                ", enclosure=" + enclosure +
+                '}';
     }
 }

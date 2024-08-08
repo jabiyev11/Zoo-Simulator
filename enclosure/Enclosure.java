@@ -52,6 +52,10 @@ public class Enclosure {
         return waste;
     }
 
+    public void setWaste(Integer waste) {
+        this.waste = waste;
+    }
+
     public void aMonthPasses(){
 
         for(Animal animal : animals){
