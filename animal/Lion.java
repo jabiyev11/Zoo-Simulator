@@ -11,19 +11,10 @@ public class Lion extends BigCat{
     }
 
     @Override
-    public void eat() {
-
-    }
-
-    @Override
     public void treat() {
         stroked();
     }
 
-    @Override
-    public boolean aMonthPasses() {
-        return false;
-    }
 
     private void stroked(){
         setHealth(getHealth() + 2);

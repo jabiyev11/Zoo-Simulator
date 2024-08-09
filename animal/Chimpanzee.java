@@ -14,10 +14,6 @@ public class Chimpanzee extends Ape{
         super(age, gender, health, CHIMPANZEE_LIFE_EXPECTANCY, enclosure);
     }
 
-    @Override
-    public void eat() {
-
-    }
 
     @Override
     public void treat() {

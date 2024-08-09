@@ -16,7 +16,7 @@ public class ZooKeeper {
         this.enclosure = enclosure;
     }
 
-    private void aMonthPasses() {
+    public void aMonthPasses() {
         removeWaste();
         moveFoodFromZooToEnclosure();
         giveTreatToAnimals();

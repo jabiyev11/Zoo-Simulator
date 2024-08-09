@@ -2,6 +2,7 @@ package animal;
 
 import enclosure.Enclosure;
 import food.Food;
+import food.FoodStore;
 
 public class Penguin extends Animal{
 
@@ -18,8 +19,14 @@ public class Penguin extends Animal{
     }
 
     @Override
-    public void eat() {
-
+    public void eat(Food food) {
+        if(Food.ICE_CREAM.equals(food)){
+            setHealth(getHealth() + 1);
+            getEnclosure().addWaste(3);
+        }else if(Food.FISH.equals(food)){
+            setHealth(getHealth() + 3);
+            getEnclosure().addWaste(2);
+        }
     }
 
     @Override
@@ -29,10 +36,26 @@ public class Penguin extends Animal{
 
     @Override
     public boolean aMonthPasses() {
-        return false;
+        decreaseHealth();
+        consumeFood();
+        return getHealth() > 0;
     }
 
     private void watchAFilm(){
         setHealth(getHealth() + 2);
+    }
+
+    private void consumeFood() {
+        FoodStore foodStore = new FoodStore();
+
+        if (foodStore.hasFood(Food.FISH)) {
+            foodStore.takeFood(Food.FISH);
+            eat(Food.FISH);
+        } else if (foodStore.hasFood(Food.ICE_CREAM)) {
+            foodStore.takeFood(Food.ICE_CREAM);
+            eat(Food.ICE_CREAM);
+        } else {
+            System.out.println("No food available for " + this.getClass().getSimpleName());
+        }
     }
 }

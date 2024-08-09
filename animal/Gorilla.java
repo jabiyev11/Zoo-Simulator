@@ -13,11 +13,6 @@ public class Gorilla extends Ape{
 
 
     @Override
-    public void eat() {
-
-    }
-
-    @Override
     public void treat() {
         painting();
     }

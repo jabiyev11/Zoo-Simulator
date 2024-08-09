@@ -29,6 +29,9 @@ public class Enclosure {
     }
 
     public void addAnimal(Animal animal){
+        if(animals.size() >= 20){
+            throw new IllegalArgumentException("Enclosure is full, cannot hold more than 20 animals");
+        }
         animals.add(animal);
     }
 
@@ -57,9 +60,11 @@ public class Enclosure {
     }
 
     public void aMonthPasses(){
-
         for(Animal animal : animals){
             animal.aMonthPasses();
+            if(!animal.aMonthPasses()){ //returns whether dead or not
+                removeAnimal(animal); //remove dead animal
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ public abstract class Animal {
 
     abstract public boolean canEat(Food food);
 
-    abstract public void eat();
+    abstract public void eat(Food food);
 
     public void decreaseHealth() {
 
@@ -55,6 +55,10 @@ public abstract class Animal {
 
     public Integer getLifeExpectancy() {
         return lifeExpectancy;
+    }
+
+    public Enclosure getEnclosure() {
+        return enclosure;
     }
 
     public void setEnclosure(Enclosure enclosure) {
