@@ -32,6 +32,7 @@ public class Penguin extends Animal{
     @Override
     public void treat() {
         watchAFilm();
+        System.out.println("Penguin watched a film with PlayZookeeper");
     }
 
     @Override
@@ -42,7 +43,7 @@ public class Penguin extends Animal{
     }
 
     private void watchAFilm(){
-        setHealth(getHealth() + 2);
+        increaseHealth(2);
     }
 
     private void consumeFood() {

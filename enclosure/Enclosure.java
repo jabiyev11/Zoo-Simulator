@@ -4,6 +4,7 @@ import animal.Animal;
 import food.FoodStore;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Enclosure {
@@ -13,7 +14,7 @@ public class Enclosure {
     private FoodStore foodStore;
     private Integer waste;
 
-    public Enclosure(){
+    public Enclosure() {
         this.animals = new ArrayList<>(20);
         this.foodStore = new FoodStore();
         this.waste = 0;
@@ -28,27 +29,35 @@ public class Enclosure {
         return foodStore;
     }
 
-    public void addAnimal(Animal animal){
-        if(animals.size() >= 20){
+    public void addAnimal(Animal animal) {
+        if (animals.size() >= 20) {
             throw new IllegalArgumentException("Enclosure is full, cannot hold more than 20 animals");
         }
         animals.add(animal);
+        System.out.println(animal + " added to Enclosure");
     }
 
-    public void removeAnimal(Animal animal){
-        animals.remove(animal);
+    public void removeAnimal(Animal animal) {
+        if (!animals.isEmpty()) {
+            animals.remove(animal);
+        }else{
+            System.out.println("Cannot remove any animal, Enclosure is already empty");
+        }
     }
 
-    public Integer sizeOfAnimalList(){
+    public Integer sizeOfAnimalList() {
         return animals.size();
     }
 
-    public void removeWaste(Integer wasteToRemove){
+    public void removeWaste(Integer wasteToRemove) {
         waste -= wasteToRemove;
+        if(waste < 0) waste = 0;
+        System.out.println("Removed waste: " + wasteToRemove + " Total waste: " + waste);
     }
 
-    public void addWaste(Integer wasteToAdd){
+    public void addWaste(Integer wasteToAdd) {
         waste += wasteToAdd;
+        System.out.println("Added waste: " + wasteToAdd + " Total waste: " + waste);
     }
 
     public Integer getWaste() {
@@ -59,12 +68,23 @@ public class Enclosure {
         this.waste = waste;
     }
 
-    public void aMonthPasses(){
-        for(Animal animal : animals){
-            animal.aMonthPasses();
-            if(!animal.aMonthPasses()){ //returns whether dead or not
+
+    public void aMonthPasses() {
+        Iterator<Animal> iterator = animals.iterator();
+        while(iterator.hasNext()) {
+            Animal animal = iterator.next();
+            if (!animal.aMonthPasses()) { //returns whether dead or not
                 removeAnimal(animal); //remove dead animal
             }
         }
     }
+
+//    @Override
+//    public String toString() {
+//        return "Enclosure{" +
+//                "animals=" + animals +
+//                ", foodStore=" + foodStore +
+//                ", waste=" + waste +
+//                '}';
+//    }
 }

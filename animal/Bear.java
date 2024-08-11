@@ -34,6 +34,7 @@ public class Bear extends Animal {
     @Override
     public void treat() {
         hug();
+        System.out.println("Bear hugged by Zookeeper");
     }
 
     @Override
@@ -44,7 +45,7 @@ public class Bear extends Animal {
     }
 
     private void hug() {
-        setHealth(getHealth() + 3);
+        increaseHealth(3);
     }
 
     private void consumeFood() {

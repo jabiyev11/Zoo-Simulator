@@ -12,12 +12,14 @@ public class Lion extends BigCat{
 
     @Override
     public void treat() {
+        System.out.println("Lion stroked by Zookeeper");
         stroked();
     }
 
 
     private void stroked(){
-        setHealth(getHealth() + 2);
+        increaseHealth(2);
+
     }
 
 }

@@ -31,6 +31,12 @@ public abstract class Animal {
     public void decreaseHealth() {
 
         this.health -= 2;
+        System.out.println("Health of " + this.getClass().getSimpleName() + " decreased by 2");
+    }
+
+    public void increaseHealth(Integer healthToIncrease){
+        this.health += healthToIncrease;
+        System.out.println("Health increased by" + healthToIncrease);
     }
 
     abstract public void treat();
@@ -50,6 +56,9 @@ public abstract class Animal {
     }
 
     public Integer getHealth() {
+        if(health < 0){
+            System.out.println(this.getClass().getSimpleName() + " died");
+        }
         return health;
     }
 

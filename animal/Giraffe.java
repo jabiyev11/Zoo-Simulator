@@ -34,6 +34,7 @@ public class Giraffe extends Animal{
     @Override
     public void treat() {
         neckMassage();
+        System.out.println("Giraffe given neck massage by PhysioZookeeper");
     }
 
     @Override
@@ -44,7 +45,8 @@ public class Giraffe extends Animal{
     }
 
     private void neckMassage(){
-        setHealth(getHealth() + 4);
+        increaseHealth(4);
+
     }
 
     private void consumeFood() {

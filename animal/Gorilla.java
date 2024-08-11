@@ -15,6 +15,7 @@ public class Gorilla extends Ape{
     @Override
     public void treat() {
         painting();
+        System.out.println("Gorilla painted with PlayZookeeper");
     }
 
     @Override
@@ -23,6 +24,6 @@ public class Gorilla extends Ape{
     }
 
     private void painting(){
-        setHealth(getHealth() + 4);
+        increaseHealth(4);
     }
 }

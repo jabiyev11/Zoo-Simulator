@@ -14,6 +14,7 @@ public class FoodStore {
     public void addFood(Food food, Integer count) {
 
         foodToCount.put(food, foodToCount.getOrDefault(food, 0) + count);
+        System.out.println(count + " " + food + " added to food store");
     }
 
 
@@ -23,6 +24,7 @@ public class FoodStore {
             int currentCount = foodToCount.get(food);
             if(currentCount > 0){
                 foodToCount.put(food, currentCount - 1);
+                System.out.println("One " + food + " taken from the food store");
             }else {
                 System.out.println("No more " + food + " left to take");
             }
@@ -47,9 +49,11 @@ public class FoodStore {
 
             Integer quantityToMove = Math.min(currentCount, totalQuantityToMove - movedQuantity);
             foodToCount.put(food, currentCount - quantityToMove);
+            System.out.println(quantityToMove + " " + food + " moved from general food store by Zookeeper");
             movedQuantity += quantityToMove;
 
             destinationStore.addFood(food, quantityToMove);
+            System.out.println("Zookeeper moved foods to " + destinationStore);
         }
 
 

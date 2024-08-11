@@ -44,7 +44,8 @@ public class Elephant extends Animal{
     }
 
     private void bath(){
-        setHealth(getHealth() + 5);
+        increaseHealth(5);
+        System.out.println("Elephant given bath by PhysioZookeeper");
     }
 
     private void consumeFood() {

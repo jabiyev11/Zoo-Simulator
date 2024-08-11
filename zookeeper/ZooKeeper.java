@@ -24,8 +24,10 @@ public class ZooKeeper {
 
     private void removeWaste() {
         if (enclosure.getWaste() > 20) {
-            enclosure.setWaste(enclosure.getWaste() - 20);
+            System.out.println("Zookeeper removed 20 waste");
+            enclosure.removeWaste(20);
         } else {
+            System.out.println("All waste removed by Zookeeper");
             enclosure.setWaste(0);
         }
     }

@@ -18,6 +18,7 @@ public class Chimpanzee extends Ape{
     @Override
     public void treat() {
         playChase();
+        System.out.println("Chimpanzee chased by PlayZookeeper");
     }
 
     @Override
@@ -26,6 +27,6 @@ public class Chimpanzee extends Ape{
     }
 
     private void playChase(){
-        setHealth(getHealth() + 4);
+        increaseHealth(4);
     }
 }
