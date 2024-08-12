@@ -23,13 +23,11 @@ abstract public class Ape extends Animal{
     @Override
     public void eat(Food food) {
         if(Food.FRUIT.equals(food)){
-            setHealth(getHealth() + 2);
+            increaseHealth(2);
             getEnclosure().addWaste(3);
-            System.out.println("Health increased by 2");
         }else if(Food.ICE_CREAM.equals(food)){
-            setHealth(getHealth() + 1);
+            increaseHealth(1);
             getEnclosure().addWaste(3);
-            System.out.println("Health increased by 1");
         }
         System.out.println("Animal has eaten " + food);
     }

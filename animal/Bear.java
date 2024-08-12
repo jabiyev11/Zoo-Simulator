@@ -23,18 +23,18 @@ public class Bear extends Animal {
     @Override
     public void eat(Food food) {
         if (Food.FISH.equals(food)) {
-            setHealth(getHealth() + 3);
+            increaseHealth(3);
             getEnclosure().addWaste(2);
         } else if (Food.STEAK.equals(food)) {
-            setHealth(getHealth() + 3);
+            increaseHealth(3);
             getEnclosure().addWaste(4);
         }
     }
 
     @Override
     public void treat() {
-        hug();
         System.out.println("Bear hugged by Zookeeper");
+        hug();
     }
 
     @Override

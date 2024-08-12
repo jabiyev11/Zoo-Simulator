@@ -74,4 +74,13 @@ public class FoodStore {
     public boolean hasFood(Food food){
         return foodToCount.getOrDefault(food, 0) > 0;
     }
+
+
+    @Override
+    public String toString() {
+        return "FoodStore{" +
+                "foodType=" + foodType +
+                ", foodToCount=" + foodToCount +
+                '}';
+    }
 }

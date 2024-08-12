@@ -36,7 +36,7 @@ public abstract class Animal {
 
     public void increaseHealth(Integer healthToIncrease){
         this.health += healthToIncrease;
-        System.out.println("Health increased by" + healthToIncrease);
+        System.out.println("Health increased by " + healthToIncrease);
     }
 
     abstract public void treat();
@@ -94,8 +94,8 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "age=" + age +
+        return this.getClass().getSimpleName() +
+                "{ age=" + age +
                 ", gender=" + gender +
                 ", eats=" + Arrays.toString(eats) +
                 ", health=" + health +

@@ -23,18 +23,18 @@ public class Giraffe extends Animal{
     @Override
     public void eat(Food food) {
         if(Food.FRUIT.equals(food)){
-            setHealth(getHealth() + 2);
+            increaseHealth(2);
             getEnclosure().addWaste(3);
         } else if (Food.HAY.equals(food)) {
-            setHealth(getHealth() + 1);
+            increaseHealth(1);
             getEnclosure().addWaste(4);
         }
     }
 
     @Override
     public void treat() {
-        neckMassage();
         System.out.println("Giraffe given neck massage by PhysioZookeeper");
+        neckMassage();
     }
 
     @Override

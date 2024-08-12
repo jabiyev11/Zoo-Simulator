@@ -24,7 +24,7 @@ abstract public class BigCat extends Animal {
     @Override
     public void eat(Food food) {
         if (Food.STEAK.equals(food)) {
-            setHealth(getHealth() + 3);
+            increaseHealth(3);
             getEnclosure().addWaste(4);
         } else if (Food.CELERY.equals(food)) {
             getEnclosure().addWaste(1);
@@ -40,9 +40,9 @@ abstract public class BigCat extends Animal {
 
 
     private void consumeFood() {
-        FoodStore foodStore = new FoodStore();
 
-        if (foodStore.hasFood(Food.STEAK)) {
+        FoodStore foodStore = getEnclosure().getFoodStore();
+        if (getEnclosure().getFoodStore().hasFood(Food.STEAK)) {
             foodStore.takeFood(Food.STEAK);
             eat(Food.STEAK);
         } else if (foodStore.hasFood(Food.CELERY)) {

@@ -1,6 +1,7 @@
 package enclosure;
 
 import animal.Animal;
+import exception.AnimalsExceedEnclosureLimitException;
 import food.FoodStore;
 
 import java.util.ArrayList;
@@ -14,10 +15,10 @@ public class Enclosure {
     private FoodStore foodStore;
     private Integer waste;
 
-    public Enclosure() {
-        this.animals = new ArrayList<>(20);
-        this.foodStore = new FoodStore();
-        this.waste = 0;
+    public Enclosure(List<Animal> animals, FoodStore foodStore, Integer waste) {
+        this.animals = animals;
+        this.foodStore = foodStore;
+        this.waste = waste;
     }
 
 
@@ -30,11 +31,16 @@ public class Enclosure {
     }
 
     public void addAnimal(Animal animal) {
-        if (animals.size() >= 20) {
-            throw new IllegalArgumentException("Enclosure is full, cannot hold more than 20 animals");
+        try {
+            if (animals.size() >= 20) {
+                throw new AnimalsExceedEnclosureLimitException("Enclosure is full, cannot hold more than 20 animals");
+            }
+            animals.add(animal);
+            System.out.println(animal + " added to Enclosure");
+        } catch (AnimalsExceedEnclosureLimitException e) {
+            e.printStackTrace();
+            System.out.println("Enclosure is full, cannot add any more animals");
         }
-        animals.add(animal);
-        System.out.println(animal + " added to Enclosure");
     }
 
     public void removeAnimal(Animal animal) {
@@ -70,13 +76,14 @@ public class Enclosure {
 
 
     public void aMonthPasses() {
+
         Iterator<Animal> iterator = animals.iterator();
-        while(iterator.hasNext()) {
-            Animal animal = iterator.next();
-            if (!animal.aMonthPasses()) { //returns whether dead or not
-                removeAnimal(animal); //remove dead animal
-            }
-        }
+       while (iterator.hasNext()){
+           Animal animal = iterator.next();
+           if(!animal.aMonthPasses()){
+               iterator.remove();
+           }
+       }
     }
 
 //    @Override

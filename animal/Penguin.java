@@ -21,18 +21,18 @@ public class Penguin extends Animal{
     @Override
     public void eat(Food food) {
         if(Food.ICE_CREAM.equals(food)){
-            setHealth(getHealth() + 1);
+            increaseHealth(1);
             getEnclosure().addWaste(3);
         }else if(Food.FISH.equals(food)){
-            setHealth(getHealth() + 3);
+            increaseHealth(3);
             getEnclosure().addWaste(2);
         }
     }
 
     @Override
     public void treat() {
-        watchAFilm();
         System.out.println("Penguin watched a film with PlayZookeeper");
+        watchAFilm();
     }
 
     @Override

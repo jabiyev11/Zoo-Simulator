@@ -6,7 +6,7 @@ import food.FoodStore;
 
 import java.util.Arrays;
 
-public class Elephant extends Animal{
+public class Elephant extends Animal {
 
     private static final Integer ELEPHANT_LIFE_EXPECTANCY = 36;
     private static final Food[] ELEPHANT_EATS = {Food.FRUIT, Food.HAY};
@@ -22,17 +22,18 @@ public class Elephant extends Animal{
 
     @Override
     public void eat(Food food) {
-        if(Food.FRUIT.equals(food)){
-            setHealth(getHealth() + 2);
+        if (Food.FRUIT.equals(food)) {
+            increaseHealth(2);
             getEnclosure().addWaste(3);
         } else if (Food.HAY.equals(food)) {
-            setHealth(getHealth() + 1);
+            increaseHealth(1);
             getEnclosure().addWaste(4);
         }
     }
 
     @Override
     public void treat() {
+        System.out.println("Elephant given bath by PhysioZookeeper");
         bath();
     }
 
@@ -43,9 +44,8 @@ public class Elephant extends Animal{
         return getHealth() > 0;
     }
 
-    private void bath(){
+    private void bath() {
         increaseHealth(5);
-        System.out.println("Elephant given bath by PhysioZookeeper");
     }
 
     private void consumeFood() {

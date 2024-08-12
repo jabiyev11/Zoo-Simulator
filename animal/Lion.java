@@ -19,7 +19,6 @@ public class Lion extends BigCat{
 
     private void stroked(){
         increaseHealth(2);
-
     }
 
 }
